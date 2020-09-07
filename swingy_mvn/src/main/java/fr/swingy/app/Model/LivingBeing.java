@@ -50,14 +50,22 @@ public abstract class LivingBeing extends Existing
     protected LivingBeing(int x, int y, String name)
     {
         super(x, y, name);
-        attack = 2;
+        attack = 0;
         defense = 0;
-        hitPoints = 10;
+        hitPoints = 0;
     }
 
     protected LivingBeing(int x, int y, String name, int attack, int defense, int hitPoints)
     {
         super(x, y, name);
+        this.attack = attack;
+        this.defense = defense;
+        this.hitPoints = hitPoints;
+    }
+
+    protected LivingBeing(String name, int attack, int defense, int hitPoints)
+    {
+        super(0, 0, name);
         this.attack = attack;
         this.defense = defense;
         this.hitPoints = hitPoints;

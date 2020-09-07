@@ -13,20 +13,21 @@ public class Hero extends LivingBeing
 
     // TODO: load hero constructor
 
-    public Hero(String name, String class)
+    public Hero(String name, String heroClass)
     {
-        if (class.equals("Cleric"))
+        if (heroClass.equals("Cleric"))
             hClass = new Cleric();
-        if (class.equals("Fighter"))
+        if (heroClass.equals("Fighter"))
             hClass = new Fighter();
-        if (class.equals("Assassin"))
+        if (heroClass.equals("Assassin"))
             hClass = new Assassin();
-        super(0, 0, "Hero");
+        super(0, 0, "Hero", 2, 0, 15);
         weapond = null;
         armor = null;
         helm = null;
         level = 0;
         experience = 0;
+        currentHitPoint = getTotalHitPoints();
     }
 
     public int getLevel()
@@ -41,17 +42,17 @@ public class Hero extends LivingBeing
 
     public int getTotalAttack()
     {
-        // TODO:
+       return attack + weapond.attackBonus() + hClass.attackBonus(); 
     }
 
     public int getTotalHitPoints()
     {
-        // TODO:
+        return hitpoints + helm.hitPointBonus() + hClass.hitPointBonus();
     }
 
     public int getTotalDefense()
     {
-        // TODO:
+        return defense + armor.defenseBonus() + hClass.defenseBonus();
     }
 
     public int getCurrentHitPoints()
@@ -62,5 +63,20 @@ public class Hero extends LivingBeing
     public void resetHitPoints()
     {
         currentHitPoint = getTotalHitPoints();
+    }
+
+    public boolean giveExperience(int monsterExperience)
+    {
+        experience += monsterExperience;
+        if (experience > (level * 1000 + Math.pow((level - 1), 2) * 450))
+        {
+            level++;
+            hitpoints += 5;
+            defense++;
+            attack++;
+            resetHitPoints();
+            return true;
+        }
+        return false;
     }
 }
