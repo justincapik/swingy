@@ -1,6 +1,6 @@
 import fr.swingy.app;
 
-public class Orc implements Monster extends LivingBeing
+public class Orc extends LivingBeing implements Monster
 {
     private static int orcAttack = 1;
     private static int orcDefense = 0;
@@ -9,9 +9,9 @@ public class Orc implements Monster extends LivingBeing
 
     public Orc(int x, int y)
     {
-        private int attack = orcAttack + ThreadLocalRandom.current().nextInt(0, 1 + 1);
-        private int defense = orcDefense + ThreadLocalRandom.current().nextInt(0, 1 + 1);
-        private int hitPoints = orcHitPoints + ThreadLocalRandom.current().nextInt(-2, 2 + 1);
+        int attack = orcAttack + ThreadLocalRandom.current().nextInt(0, 1 + 1);
+        int defense = orcDefense + ThreadLocalRandom.current().nextInt(0, 1 + 1);
+        int hitPoints = orcHitPoints + ThreadLocalRandom.current().nextInt(-2, 2 + 1);
 
         super(x, y, "Orc", attack, defense, hitPoints);
     }

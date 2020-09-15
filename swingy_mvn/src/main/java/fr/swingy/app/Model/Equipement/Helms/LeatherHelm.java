@@ -1,4 +1,4 @@
-import fr.swingy.app;
+package fr.swingy.app;
 
 public class LeatherHelm extends Equipement implements Helm
 {

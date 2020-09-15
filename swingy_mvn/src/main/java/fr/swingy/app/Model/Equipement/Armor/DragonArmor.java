@@ -1,4 +1,4 @@
-import fr.swingy.app;
+package fr.swingy.app;
 
 public class DragonArmor extends Equipement implements Armor
 {
